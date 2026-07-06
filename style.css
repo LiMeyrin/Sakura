@@ -1,4 +1,4 @@
-/* Базовый сброс стилей браузера */
+/* Полный сброс стилей */
 * {
     margin: 0;
     padding: 0;
@@ -6,22 +6,22 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Arial, sans-serif;
     min-height: 100vh;
     background: linear-gradient(135deg, #7F00FF, #00FFED);
 }
 
-/* Верхнее меню (Навигация) */
+/* Навигационное верхнее меню */
 .main-header {
     width: 100%;
-    padding: 20px 0;
+    padding: 20px 0 10px 0;
     display: flex;
     justify-content: center;
 }
 
 .navigation {
     width: 90%;
-    max-width: 1000px;
+    max-width: 950px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,16 +30,16 @@ body {
 .nav-row {
     display: flex;
     justify-content: center;
-    gap: 25px;
+    gap: 30px;
     width: 100%;
-    padding: 10px 0;
+    padding: 8px 0;
 }
 
 .nav-link {
     text-decoration: none;
-    color: #333333;
-    font-size: 1.2rem;
-    font-weight: 600;
+    color: #4c4c4c;
+    font-size: 1.3rem;
+    font-weight: bold;
 }
 
 .nav-link.active {
@@ -49,29 +49,32 @@ body {
 .nav-divider {
     width: 100%;
     border: none;
-    border-top: 2px solid #000000;
+    border-top: 2.5px solid #000000;
     margin: 5px 0;
 }
 
-/* Контейнер для макета со слайда */
+
+/* --- ЦЕНТРАЛЬНАЯ ПЛАШКА ИЗ ВТОРОГО СКРИНШОТА --- */
+
 .content-area {
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 40px 20px;
+    padding: 20px;
 }
 
-.slide-container {
+/* Сама плашка-контейнер */
+.slide-panel {
     width: 100%;
     max-width: 900px;
     display: flex;
     flex-direction: column;
-    gap: 70px; /* Большое фиксированное расстояние между строками */
-    margin-top: 20px;
+    gap: 55px; /* Жесткий фиксированный отступ между рядами */
+    padding: 20px 40px;
 }
 
-/* Принудительный жирный чёрный шрифт Arial Black для контента дорам */
-.slide-row {
+/* Все надписи делаем строго черными и жирными Arial Black */
+.panel-row {
     display: flex;
     width: 100%;
     color: #000000 !important;
@@ -79,65 +82,59 @@ body {
     font-family: 'Arial Black', 'Impact', sans-serif !important;
 }
 
-/* Ряд 1: Распределяем категории по краям, чтобы не слипались */
-.first-row {
+/* Ряд 1: Категории разносим по ширине */
+.row-one {
     justify-content: space-between;
+}
+
+.row-one .text-item {
     font-size: 1.7rem;
-    padding: 0 10px;
+    letter-spacing: -0.5px;
 }
 
-.first-row .item {
-    display: block;
-}
-
-/* Ряд 2: Зона поиска */
-.second-row {
+/* Ряд 2: Блоки поиска */
+.row-two {
     justify-content: space-between;
     align-items: center;
-    font-size: 1.6rem;
-    padding: 0 20px;
 }
 
-.search-block-left, 
-.search-block-right {
+.search-box-left, 
+.search-box-right {
     display: flex;
     align-items: center;
-    gap: 15px; /* Фиксированный отступ между иконкой и текстом */
+    gap: 15px; /* Четкий отступ, чтобы текст не слипался с лупой */
 }
 
-/* СТИЛЬНЫЕ ЧЁРНЫЕ ЛУПЫ БЕЗ ЗВЁЗДЫ */
-.stylish-loop {
+.row-two .search-text {
+    font-size: 1.6rem;
+}
+
+/* Маленькие, аккуратные круглые обводки для луп со второго скрина */
+.small-loop-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    border: 3px solid #000000; /* Черный контур */
+    border-radius: 50%;
     width: 36px;
     height: 36px;
-    border: 3px solid #000000; /* Чёрный ободок */
-    border-radius: 50%;
+    font-size: 1.1rem;
+    padding-bottom: 2px; /* Выравнивание лупы внутри круга */
 }
 
-.stylish-loop svg {
-    width: 20px;
-    height: 20px;
-    fill: #000000; /* Чёрный цвет самой лупы */
-}
-
-/* Ряд 3: Направления (ГЕТ, ОМЕГАВЕРС, BL) */
-.third-row {
+/* Ряд 3: Крупные нижние жанры (ГЕТ, ОМЕГАВЕРС, BL) */
+.row-three {
     justify-content: space-between;
     align-items: center;
-    padding: 0 10px;
+    margin-top: 10px;
 }
 
-.third-row .tag {
-    display: block;
+.tag-side {
+    font-size: 3.8rem;
+    letter-spacing: -1px;
 }
 
-.tag-get, .tag-bl {
-    font-size: 3.6rem;
-}
-
-.tag-omega {
-    font-size: 5rem; /* ОМЕГАВЕРС — самый крупный по центру */
+.tag-main {
+    font-size: 5rem; /* ОМЕГАВЕРС — самый огромный по центру */
     letter-spacing: 1px;
 }
