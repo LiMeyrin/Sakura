@@ -8,7 +8,7 @@
 </head>
 <body>
 
-    <!-- Меню сайта -->
+    <!-- Меню -->
     <header class="main-header">
         <nav class="navigation">
             <div class="nav-row top-row">
@@ -29,68 +29,49 @@
         </nav>
     </header>
 
-    <!-- Основная панель как на Screenshot_9.jpg -->
+    <!-- Блок контента строго по слайду Screenshot_9_2.jpg -->
     <main class="content-area">
-        <div class="filter-panel">
+        <div class="slide-container">
             
-            <!-- Ряд 1: Категории -->
-            <div class="filter-row categories-row">
-                <div class="filter-item">По жанрам</div>
-                <div class="filter-item">По странам</div>
-                <div class="filter-item">По алфавиту</div>
-                <div class="filter-item">По годам</div>
+            <!-- Ряд 1 -->
+            <div class="slide-row row-1">
+                <div>По жанрам</div>
+                <div>По странам</div>
+                <div>По алфавиту</div>
+                <div>По годам</div>
             </div>
 
-            <!-- Ряд 2: Поисковая зона -->
-            <div class="filter-row search-row">
-                <!-- Левый блок: Поиск по фильтрам -->
-                <div class="search-block filter-search">
-                    <div class="custom-icon-btn">
-                        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M10 7L9 9l-2 1 2 1 1 2 1-2 2-1-2-1z" fill="#000"/></svg>
-                    </div>
-                    <span class="search-text-label">Поиск по фильтрам</span>
+            <!-- Ряд 2 -->
+            <div class="slide-row row-2">
+                <div class="search-item text-left">
+                    <span class="star-search-icon">🔍✨</span> Поиск по фильтрам
                 </div>
-                
-                <!-- Правый блок: Поиск по названию (интерактивный) -->
-                <div class="search-block title-search" id="titleSearchBlock">
-                    <!-- Обычное состояние (текст + лупа) -->
-                    <div class="search-trigger-wrapper" id="searchTriggerWrapper" onclick="showSearchInput()">
-                        <span class="search-text-label">Поиск по названию</span>
-                        <div class="custom-icon-btn">
-                            <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/><path d="M10 7L9 9l-2 1 2 1 1 2 1-2 2-1-2-1z" fill="#000"/></svg>
-                        </div>
-                    </div>
-                    
-                    <!-- Скрытая строка ввода, которая заменит текст при клике -->
-                    <input type="text" id="targetSearchField" placeholder="Введите название..." class="slide-search-input" onblur="hideSearchInputIfEmpty()">
+                <div class="search-item text-right" onclick="showInputBlock()">
+                    Поиск по названию <span class="star-search-icon" id="inputTargetIcon">🔍✨</span>
                 </div>
             </div>
 
-            <!-- Ряд 3: Крупные теги направлений -->
-            <div class="filter-row tags-row">
-                <div class="tag-bold">ГЕТ</div>
-                <div class="tag-bold main-title">ОМЕГАВЕРС</div>
-                <div class="tag-bold">BL</div>
+            <!-- Скрытая строка, которая встанет на место надписи при клике -->
+            <div class="input-hidden-row" id="searchFieldRow">
+                <input type="text" class="simple-input-box" placeholder="Поиск по названию...">
+            </div>
+
+            <!-- Ряд 3 -->
+            <div class="slide-row row-3">
+                <div class="tag-left">ГЕТ</div>
+                <div class="tag-center">ОМЕГАВЕРС</div>
+                <div class="tag-right">BL</div>
             </div>
 
         </div>
     </main>
 
-    <!-- Скрипт для мгновенной подмены текста на инпут -->
     <script>
-        function showSearchInput() {
-            document.getElementById('searchTriggerWrapper').style.display = 'none';
-            const input = document.getElementById('targetSearchField');
-            input.style.display = 'block';
-            input.focus();
-        }
-
-        function hideSearchInputIfEmpty() {
-            const input = document.getElementById('targetSearchField');
-            if (input.value.trim() === "") {
-                input.style.display = 'none';
-                document.getElementById('searchTriggerWrapper').style.display = 'flex';
-            }
+        function showInputBlock() {
+            // Прячем строку с текстом, показываем чистый инпут
+            document.querySelector('.row-2').style.display = 'none';
+            document.getElementById('searchFieldRow').style.display = 'block';
+            document.querySelector('.simple-input-box').focus();
         }
     </script>
 
