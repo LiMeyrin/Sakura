@@ -1,4 +1,4 @@
-/* Сброс всех отступов */
+/* Обнуление */
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +6,13 @@
 }
 
 body {
-    font-family: 'Arial Black', 'Impact', sans-serif; /* Супер-жирный и массивный шрифт */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 100vh;
     background: linear-gradient(135deg, #7F00FF, #00FFED);
-    color: #000000; /* Вся страница дорам строго в чёрном цвете текста */
+    color: #333;
 }
 
-/* Верхнее навигационное меню */
+/* Стили меню (которые у нас работают идеально) */
 .main-header {
     width: 100%;
     padding: 20px 0;
@@ -22,7 +22,7 @@ body {
 
 .navigation {
     width: 90%;
-    max-width: 900px;
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,18 +30,18 @@ body {
 
 .nav-row {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
+    gap: 25px;
     width: 100%;
-    padding: 8px 0;
+    padding: 10px 0;
 }
 
 .nav-link {
     text-decoration: none;
-    color: #4c4c4c;
-    font-size: 1.3rem;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
+    color: #333333;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 .nav-link.active {
@@ -51,80 +51,80 @@ body {
 .nav-divider {
     width: 100%;
     border: none;
-    border-top: 3px solid #000000;
+    border-top: 2px solid #000000;
     margin: 5px 0;
 }
 
-/* Стилизация контентного блока под слайд */
+/* Оформление контента второго слайда на основе сетки меню */
 .content-area {
+    width: 100%;
     display: flex;
     justify-content: center;
-    padding: 10px 20px;
+    padding: 20px 0;
 }
 
-.slide-box {
-    width: 100%;
-    max-width: 850px;
+.slide-container {
+    width: 90%;
+    max-width: 1000px; /* Такая же ширина, как у меню */
     display: flex;
     flex-direction: column;
-    gap: 55px; /* Большие отступы между рядами текста */
-    padding: 20px 10px;
-}
-
-/* Общая структура строк */
-.slide-layout {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 60px; /* Ровные отступы между строками */
+    margin-top: 30px;
+}
+
+/* Базовый жирный шрифт для всего слайда */
+.slide-row {
+    display: flex;
     width: 100%;
-    font-weight: 900;
+    color: #000000 !important;
+    font-weight: 900 !important;
+    font-family: 'Arial Black', 'Impact', sans-serif;
 }
 
-/* Ряд 1: Верхние категории */
-.row-categories span {
-    font-size: 1.7rem;
-    letter-spacing: -0.5px;
-}
-
-/* Ряд 2: Элементы поиска */
-.row-search {
+/* Ряд 1: По жанрам... (копирует логику строк меню) */
+.first-row {
     justify-content: space-between;
+    font-size: 1.6rem;
     padding: 0 10px;
 }
 
-.search-item-box {
+/* Ряд 2: Поиски */
+.second-row {
+    justify-content: space-between;
+    font-size: 1.5rem;
+    padding: 0 40px; /* Чуть сдвигаем к центру, как на слайде */
+}
+
+.search-left, .search-right {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 15px;
 }
 
-.search-label-text {
-    font-size: 1.6rem;
-}
-
-/* Круглые рамки вокруг луп на слайде */
-.round-loop {
+/* Круглые обводки луп */
+.loop-circle {
     display: inline-block;
     border: 3px solid #000000;
     border-radius: 50%;
-    width: 38px;
-    height: 38px;
-    line-height: 32px;
+    width: 36px;
+    height: 36px;
+    line-height: 28px;
     text-align: center;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
-/* Ряд 3: Большие нижние надписи */
-.row-tags {
+/* Ряд 3: Огромные буквы внизу */
+.third-row {
+    justify-content: space-between;
     align-items: center;
+    padding: 0 10px;
 }
 
-.side-tag {
+.tag-get, .tag-bl {
     font-size: 3.5rem;
-    letter-spacing: -1px;
 }
 
-.center-tag {
-    font-size: 4.6rem; /* ОМЕГАВЕРС — самый огромный по центру */
-    letter-spacing: 1px;
+.tag-omega {
+    font-size: 4.8rem; /* Самый огромный по центру */
 }
